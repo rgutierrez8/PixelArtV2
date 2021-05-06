@@ -2,7 +2,7 @@ const container = document.getElementById("container");
 const inputFila = document.getElementById("input-filas");
 const inputCol = document.getElementById("input-columnas");
 const tamañoCelda = document.getElementById("tamaño-celdas");
-const btnCrear = document.getElementById("btnCrear");
+const btnReiniciar = document.getElementById("btnReiniciar");
 const checkBordes = document.getElementById("checkBordes");
 const colorFondo = document.getElementById("color-fondo");
 const colorCelda = document.getElementById("color-celda")
@@ -21,22 +21,35 @@ btnGoma.addEventListener("click", function(){
     btnLapiz.classList.remove("seleccionado");
     btnGoma.classList.add("seleccionado");
 });
-console.log(colorFondo.value);
-btnCrear.addEventListener("click", function(){
+
+inputFila.addEventListener("change", dibujarGrilla);
+inputCol.addEventListener("change", dibujarGrilla);
+
+function dibujarGrilla(){
     container.innerHTML = "";
     container.style.gridTemplateColumns = `repeat(${inputFila.value}, 1fr)`
     console.log(tamañoCelda.value);
     for(let i=0; i<inputFila.value; i++){
         for(let j=0; j<inputCol.value; j++){
             const celda = document.createElement("div");
-            celda.style.width = `${tamañoCelda.value}px`;
-            celda.style.height = `${tamañoCelda.value}px`;
+            celda.classList.add("border");
+            tamañoCelda.addEventListener("change", function(){
+                celda.style.width = `${tamañoCelda.value}px`;
+                celda.style.height = `${tamañoCelda.value}px`;
+            });
             
-            if(checkBordes.checked){
-                celda.classList.toggle("border");
-            }
-            
-            celda.style.background = `${colorFondo.value}`;
+            checkBordes.addEventListener("change", function(){
+                if(checkBordes.checked){
+                    celda.classList.add("border");
+                }
+                else{
+                    celda.classList.remove("border");
+                }
+            })
+
+            colorFondo.addEventListener("change", function(){
+                celda.style.background = `${colorFondo.value}`;
+            });
             
             celda.addEventListener("click", function(){
                  
@@ -51,4 +64,11 @@ btnCrear.addEventListener("click", function(){
             container.appendChild(celda);
         }
     }
-});
+};
+
+btnReiniciar.addEventListener("click", function(){
+    container.innerHTML = "";
+    inputCol.value = "";
+    inputFila.value = "";
+    tamañoCelda.value = "";
+})
