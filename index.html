@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/all.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div>
+            <input type="number" placeholder="Filas" id="input-filas">
+            <input type="number" placeholder="Columnas" id="input-columnas">
+            <input type="number" placeholder="Tamaño" id="tamaño-celdas">
+            <label>Bordes</label>
+            <input type="checkbox" id="checkBordes">
+            <input type="button" value="Crear" id="btnCrear">
+        </div>
+        <div>
+            <label>Fondo:</label>
+            <input type="color" id="color-fondo">
+            <label>Pintar:</label>
+            <input type="color" id="color-celda">
+            <button id="btnLapiz" class="btn-img seleccionado"><i class="fas fa-pencil-alt"></i></button>
+            <button id="btnGoma" class="btn-img"><i class="fas fa-eraser"></i></button>
+        </div>
+    </header>
+    <section>
+        <div class="grid-container" id="container"></div>
+    </section>
+    <script src="js/script.js"></script>
+</body>
+</html>

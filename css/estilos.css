@@ -1,0 +1,70 @@
+.grid-container{
+    display: inline-grid;
+}
+
+.border{
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+header{
+    text-align: center;
+    padding: 20px;
+}
+
+input, button{
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px black;
+}
+
+input{
+    width: 80px;
+}
+
+#checkBordes{
+    position: relative;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+}
+
+input[type="color"]{
+    width: 50px;
+}
+
+.btn-img{
+    width: 40px;
+    height: 40px;
+    text-align: center;
+}
+
+.btn-img i{
+    font-size: 30px;
+    opacity: 0.3;
+    position: relative;
+    right: 3px;
+}
+
+.seleccionado{
+    background: grey;
+}
+.seleccionado i{
+    opacity: 1;
+    color: black;
+}
+
+#btnCrear:hover{
+    background: black;
+    transition: 0.7s;
+    color: white;
+}
+
+#btnCrear:active{
+    background: black;
+    color: white;
+}
+
+section{
+    text-align: center;
+}
